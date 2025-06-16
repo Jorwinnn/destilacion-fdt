@@ -1,0 +1,88 @@
+\subsection{Análisis hidrodinámico}
+
+\subsubsection{Número de Reynolds}
+El número de Reynolds ($Re$) de la fase vapor en cada plato se calculó como:
+$$
+    Re = \frac{\rho_v\ u_v\ D_h}{\mu_{v}}
+$$
+
+La viscosidad de mezcla $\mu_{v}$ [Pa s] se halló aplicando la regla de Wilke:
+$$
+    \mu_v = \sum_{i = 1}^n \frac{y_i\ \mu_i(T_j)}{\displaystyle\sum_{k = 1}^n y_k \Phi_{ik}},
+    \quad\text{con}\quad
+    \Phi_{ik} = \frac{1}{\sqrt{8}}
+    \left(1 + \sqrt{\frac{\mu_i(T_j)}{\mu_k(T_j)}} \sqrt[4]{\frac{M_k}{M_i}}\right)^2
+    \sqrt{\frac{M_i}{M_k}}
+$$
+
+La viscosidad pura de un componente a cierta temperatura es $\mu_i(T_j)$, bajo una presión de 101325 Pa. Para su cálculo, se empleó un polinomio de regresión de segundo grado ajustado a datos experimentales reportados en la base de datos del NIST. Por otro lado, el cálculo del parámetro $\Phi_{ik}$ se llevó a cabo para cada par posible de componentes en la mezcla, resultando en un total de 16 combinaciones.
+
+\begin{table}[ht]
+    \centering\small
+    \begin{tabular}{|c|*{8}{c|}}
+        \hline
+        \textbf{Plato}    & 0 & 1        & 2        & 3        & 4        & 5        & 6        & 7        \\ \hline
+        \textbf{Reynolds} & 0 & 25059.20 & 24953.07 & 24880.61 & 24838.57 & 24769.36 & 24686.47 & 24602.94 \\ \hline
+    \end{tabular}
+
+    \vspace{1em}
+    \begin{tabular}{|c|*{8}{c|}}
+        \hline
+        8        & 9        & 10       & 11       & 12       & 13       & 14       & 15       \\ \hline
+        24525.04 & 24455.40 & 24394.81 & 24343.00 & 24299.10 & 24261.87 & 24785.70 & 25324.50 \\ \hline
+    \end{tabular}
+
+    \vspace{1em}
+    \begin{tabular}{|c|*{8}{c|}}
+        \hline
+        16       & 17       & 18       & 19       & 20       & 21       & 22       \\ \hline
+        25504.82 & 25504.95 & 25448.61 & 25382.82 & 25322.15 & 25270.21 & 25227.63 \\ \hline
+    \end{tabular}
+
+    \vspace{1em}
+    \caption{Número de Reynolds de la fase vapor}
+\end{table}
+\vspace{-1.5em}
+Los valores de $Re$ ($>2\cdot 10^4$) indican un flujo turbulento en los platos 1-22. El plato 0 (condensador) registra $Re=0$ pues no hay circulación de vapor hacia el interior. Las variaciones entre $\approx2.45\times10^4$ y $\approx2.55\times10^4$ responden a cambios en densidad y velocidad locales, asegurando condiciones óptimas de transferencia de masa y calor.
+
+\subsubsection{Tiempos de Residencia}
+
+El tiempo de residencia ($t_{\text{res}}$) del líquido en cada plato se definió como
+$$
+    t_{\text{res}} = \frac{V_l}{\dot{V}_l},
+$$
+
+donde $V_l = A_{\mathrm{ac}}\ h_{l}$ representa el volumen de líquido en la etapa y $\dot{V}_{l} = \dot{m}_{l} / \rho_{l}$ corresponde al flujo volumétrico de líquido [m³/s]. El valor de $\dot{m}_{l}$ se obtuvo a partir de $L_j$, expresado en flujo molar [kmol/h], y la masa molar promedio de la mezcla. La densidad líquida $\rho_{l}$ se utilizó para completar el cálculo. En la práctica, se empleó:
+$$
+    t_{\text{res},j} = \frac{A_{\text{ac}}h_{l}}{\dot{m}_{l}/\rho_{l}} \times 3600,
+$$
+
+de modo que $t_{\text{res},j}$ queda en segundos.
+
+\begin{table}[ht]
+    \centering\small
+    \begin{tabular}{|c|*{8}{c|}}
+        \hline
+        \textbf{Plato}      & 0     & 1     & 2     & 3     & 4     & 5     & 6     & 7     \\ \hline
+        \textbf{Tiempo [s]} & 26.49 & 27.36 & 27.96 & 28.22 & 28.40 & 28.57 & 28.72 & 28.87 \\ \hline
+    \end{tabular}
+
+    \vspace{1em}
+    \begin{tabular}{|c|*{8}{c|}}
+        \hline
+        \textbf{Plato}      & 8     & 9     & 10    & 11    & 12    & 13    & 14    & 15    \\ \hline
+        \textbf{Tiempo [s]} & 28.99 & 29.10 & 29.19 & 29.27 & 29.33 & 14.61 & 14.58 & 14.58 \\ \hline
+    \end{tabular}
+
+    \vspace{1em}
+    \begin{tabular}{|c|*{8}{c|}}
+        \hline
+        \textbf{Plato}      & 16    & 17    & 18    & 19    & 20    & 21    & 22     \\ \hline
+        \textbf{Tiempo [s]} & 14.62 & 14.67 & 14.71 & 14.75 & 14.79 & 14.81 & 153.37 \\ \hline
+    \end{tabular}
+
+    \vspace{1em}
+    \caption{Tiempos de residencia del líquido en cada plato}
+\end{table}
+\vspace{-1.5em}
+Los tiempos en los platos 0-12 (26-2 s) son típicos para una altura de película líquida de 10 cm (la asumida). A partir del plato 13 (alimentación) el mayor flujo de líquido reduce $t_{\text{res}}$ a ~14.5 s en las etapas 13-21. El plato 22 (rehervidor) registra 153.37 s debido a su bajo flujo líquido relativo y su función de acumulador térmico. Estos resultados muestran la variación de la permanencia líquida desde el condensador hasta el rehervidor, confirmando parámetros de operación adecuados.

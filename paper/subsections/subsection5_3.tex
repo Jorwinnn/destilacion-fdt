@@ -1,0 +1,46 @@
+% Erick
+\subsection{Relación de los fenómenos de transporte con el objeto de estudio}
+La destilación multicomponente es un proceso complejo que involucra la interacción simultánea de tres mecanismos fundamentales de transporte:
+
+\begin{itemize}
+    \item \textbf{Transferencia de masa:} Redistribución de los componentes entre las fases líquida y vapor.
+    \item \textbf{Transferencia de energía:} Intercambio de calor entre las fases y con el entorno.
+    \item \textbf{Transferencia de momento:} Movimiento y flujo de las fases dentro de la columna.
+\end{itemize}
+
+La integración de estos tres procesos es clave para lograr una operación eficiente y alcanzar las composiciones de destilado y residuo deseadas. A continuación, se explica cómo se interrelacionan y se modelan estos mecanismos en una columna de destilación multicomponente:
+
+\subsubsection{Transferencia de masa}
+La transferencia de masa ocurre debido a la diferencia de concentración de los componentes entre las fases líquida y vapor. La fuerza impulsora es la diferencia entre las concentraciones reales y las concentraciones en equilibrio.
+\begin{itemize}
+    \item \textbf{Impacto en el modelo:} La tasa de transferencia de masa determina la rapidez con la que los componentes alcanzan el equilibrio en cada etapa.
+    \item \textbf{Viabilidad:} Es viable si las diferencias de concentración son suficientes para impulsar el proceso y las propiedades de difusión están bien caracterizadas.
+    \item \textbf{Aplicación:} Se modela mediante balances de materia y ecuaciones de equilibrio, considerando la volatilidad y la interacción entre componentes. Un claro ejemplo es el flujo másico de la alimentación así como el flujo másico de cada una de las salidas presente, de la misma manera se puede corroborar la consistencia física de la destilación mediante la sumatoria de sus fracciones molares (la cuál debe ser igual a 1) para estar seguros de la verosimilitud del modelado.
+\end{itemize}
+
+\subsubsection{Transferencia de energía}
+La transferencia de energía es fundamental para mantener las diferencias de temperatura necesarias para la separación de los componentes. La fuerza impulsora es la diferencia de temperatura entre las fases líquida y vapor.
+\begin{itemize}
+    \item \textbf{Impacto en el modelo:} La eficiencia de la separación depende de un perfil de temperatura adecuado y de la disponibilidad de calor para vaporizar y condensar los componentes.
+    \item \textbf{Viabilidad:} Es viable si las fuentes de calor (reboiler) y de enfriamiento (condensador) son suficientes para mantener las condiciones térmicas requeridas.
+    \item \textbf{Aplicación:} Se modela mediante balances de energía, considerando las entalpías de las fases y las temperaturas de ebullición y condensación.
+\end{itemize}
+
+\subsubsection{Transferencia de momento}
+La transferencia de momento está relacionada con el movimiento y flujo de las fases dentro de la columna. La fuerza impulsora es la diferencia de presión y el gradiente de velocidad entre las fases.
+\begin{itemize}
+    \item \textbf{Impacto en el modelo:} La caída de presión y las fuerzas de arrastre afectan el contacto entre las fases y la eficiencia de separación.
+    \item \textbf{Viabilidad:} Es viable si las condiciones de flujo permiten una buena interacción entre las fases sin causar arrastre o inundación.
+    \item \textbf{Aplicación:} Se modela mediante ecuaciones de flujo, considerando fricción, resistencia y fuerzas gravitatorias.
+\end{itemize}
+
+\subsubsection{Interacción entre los tres mecanismos}
+Un modelo viable requiere que la transferencia de masa, energía y momento estén acopladas. Si el modelo representa adecuadamente las condiciones de equilibrio, flujo y temperatura, la predicción del comportamiento de la columna será precisa y útil para el diseño y optimización del proceso.
+
+\subsubsection{Modelado integral}
+Para modelar correctamente la interacción entre estos mecanismos, se requiere resolver de manera acoplada:
+\begin{itemize}
+    \item Ecuaciones de balance de masa para cada componente
+    \item Ecuaciones de balance de energía para cada etapa
+    \item Ecuaciones de flujo para determinar las caídas de presión y los regímenes de flujo
+\end{itemize}

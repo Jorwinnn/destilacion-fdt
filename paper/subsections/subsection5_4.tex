@@ -1,0 +1,97 @@
+\subsection{Ficha tecnica de la columna de destilacion}
+
+\textbf{Datos generales} \\
+\begin{itemize}
+    \item Nombre del equipo: Columna de destilación.
+    \item Industria de aplicación: Petroquímica.
+    \item Descripción general: Equipo diseñado para separar una mezcla de gases ligeros.
+    \item Operación unitaria asociada: Destilación multicomponente.
+\end{itemize}
+
+\begin{table}[ht!]
+    \centering
+    \caption{Especificaciones técnicas}
+    \begin{tabularx}{\linewidth}{|A{3.5cm}|A{2cm}|A{3cm}|B|}
+        \hline
+        \textbf{Parámetro}       & \textbf{Unidad} & \textbf{Valor/Rango}               & \textbf{Importancia}                                                     \\
+        \hline
+        Temperatura de operación & K               & 220 -- 280                         & Permite la vaporización de cada componente según su punto de ebullición. \\
+        \hline
+        Presión de operación     & kPa             & 100 -- 115                         & Mantiene el equilibrio de fases y condiciones seguras de operación.      \\
+        \hline
+        Corrientes               & kmol/h          & 0 -- 400                           & Flujo de fases que cumplen el equilibrio líquido-vapor.                  \\
+        \hline
+        Dimensiones              & m               & Altura: 18 -- 22; Diámetro: 1 -- 2 & Variables de diseño que aplican restricciones operativas.                \\
+        \hline
+        Fuente de energía        &                 & Electricidad                       & Suministra el calor que el rehervidor necesita para su funcionamiento.   \\
+        \hline
+        Material de construcción &                 & Acero al carbono                   & Estructuralmente confiable en condiciones moderadas                      \\
+        \hline
+        Grosor de pared          & mm              & 10                                 & Asegura la resistencia a la presión y temperatura del equipo.            \\
+    \end{tabularx}
+\end{table}
+
+\newpage
+\begin{table}[ht]
+    \centering
+    \caption{Componentes principales}
+    \begin{tabularx}{\linewidth}{|A{3.5cm}|B|B|}
+        \hline
+        \textbf{Componente} & \textbf{Función dentro del Equipo}                   & \textbf{Material} \\
+        \hline
+        Condensador         & Condensa el vapor ascendente                         & Acero al carbono  \\
+        \hline
+        Sistema de Reflujo  & Retorna una fracción del condensado a la columna     & Acero al carbono  \\
+        \hline
+        Torre/Columna       & Contenedor del sistema de separación                 & Acero al carbono  \\
+        \hline
+        Platos perforados   & Incrementan la superficie de contacto para las fases & Acero al carbono  \\
+        \hline
+        Rehervidor          & Hierve el líquido descendente                        & Acero al carbono  \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\textbf{Relación con los Fenómenos de Transporte} \\
+\begin{itemize}
+    \item \textbf{Transporte de masa:} Se manifiesta en la convección de vapor y líquido en cada plato para equilibrar composiciones.
+    \item \textbf{Transporte de energía:} Se manifiesta en la transferencia térmica convectiva entre corrientes de vapor y líquido.
+    \item \textbf{Transporte de momento:} Se manifiesta en las caídas de presión y turbulencias que impulsan los flujos de las fases en la columna.
+\end{itemize}
+
+\textbf{Control del Equipo} \\
+\begin{itemize}
+    \item \textbf{Variables monitoreadas:} Temperatura, presión, caudal de alimentación y reflujo.
+    \item \textbf{Instrumentación:} Termopares, manómetros, caudalímetros y sensores de nivel.
+    \item \textbf{Sistema de control:} PLC/SCADA con lazos PID para las variables operativas.
+\end{itemize}
+
+\textbf{Aplicaciones en la Industria} \\
+\begin{itemize}
+    \item \textbf{Petroquímica:} Separación del petróleo crudo y de sus derivados.
+    \item \textbf{Química:} Purificación de solventes y ácidos.
+    \item \textbf{Cervecera:} Desalcoholización para cervezas sin alcohol.
+    \item \textbf{Aceites esenciales:} Extracción de compuestos volátiles.
+\end{itemize}
+
+\textbf{Aspectos Económicos y Ambientales} \\
+\begin{itemize}
+    \item \textbf{Costo estimado:} Alta inversión inicial en equipo y automatización, con costos operativos variables según la escala.
+    \item \textbf{Consumo energético:} Elevado, pero optimizable mediante la recuperación de calor y mejora en la eficiencia del rehervidor y condensador.
+    \item \textbf{Impacto ambiental:} Considerable debido al consumo de energía y posibles emisiones; sin embargo, se pueden mitigar mediante sistemas de tratamiento y reciclaje.
+    \item \textbf{Estrategias de mitigación:} Recuperación de calor, sistemas de control de emisiones y tratamiento de residuos para minimizar el impacto ambiental.
+\end{itemize}
+
+\textbf{Seguridad y Normativas} \\
+\begin{itemize}
+    \item \textbf{Riesgos asociados:} Altas temperaturas, presiones elevadas y manejo de fluidos inflamables y corrosivos.
+    \item \textbf{Normativas aplicables:} ASME BPVC VIII-1, API 510, IEC 61511 \& OSHA 1910.119 (PSM).
+    \item \textbf{Medidas de seguridad:} Uso obligatorio de equipos de protección personal (EPP), dispositivos de alivio de presión, monitoreo continuo y protocolos de emergencia.
+\end{itemize}
+
+\textbf{Mantenimiento y Vida Útil} \\
+\begin{itemize}
+    \item \textbf{Frecuencia:} Preventivo trimestral y predictivo continuo.
+    \item \textbf{Procedimientos:} Limpieza, inspección de platos, calibración de sensores.
+    \item \textbf{Esperanza de vida:} 20-30 años con mantenimiento riguroso.
+\end{itemize}

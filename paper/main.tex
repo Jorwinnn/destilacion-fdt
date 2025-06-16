@@ -1,0 +1,93 @@
+\documentclass[man, floatsintext]{apa7}
+
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{referencias.bib}
+
+\usepackage[spanish]{babel}
+\usepackage{subfiles}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1em, topsep=0em}
+\setlist[enumerate]{leftmargin=1em, topsep=0em}
+\setlist[description]{leftmargin=1em, topsep=0em}
+
+\newcommand{\nsp}[1]{\\\vspace{#1}}
+\newcolumntype{A}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{B}{>{\centering\arraybackslash}X}
+
+\raggedbottom
+\decimalpoint
+
+\shorttitle{}
+
+\begin{document}
+
+\begin{titlepage}
+    \setcounter{page}{1}
+    \thispagestyle{headings}
+    \begin{center}
+        {\Large
+            \textbf{Universidad Nacional de Ingeniería}
+            \nsp{1em}
+            \textbf{Dirección de Área de Conocimiento de Agricultura}
+        }
+        \nsp{2em}
+        \includegraphics[height=4cm]{resources/images/uni.png}
+        \nsp{1em}
+        {\large
+            \textbf{Fenómenos de Transporte}
+
+            \textbf{Diseño de una columna de destilación multicomponente para la recuperación de gases ligeros del destilado de petróleo crudo}
+            \nsp{1em}
+            Edson Alexander Cruz Vásquez
+
+            Erick Francisco Meléndez Lugo
+
+            Jorwin Manuel Navarrete Morales
+            \nsp{1em}
+            Sergio Enrique Alvarez García
+
+            3T2 - IQ
+
+            \today
+        }
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% OBJETIVOS
+\subfile{sections/section1.tex}
+\newpage
+
+% INTRODUCCIÓN
+\subfile{sections/section2.tex}
+\newpage
+
+% JUSTIFICACIÓN
+\subfile{sections/section3.tex}
+\newpage
+
+% MARCO TEÓRICO
+\subfile{sections/section4.tex}
+\newpage
+
+% DESARROLLO DEL PROYECTO
+\subfile{sections/section5.tex}
+\newpage
+
+% CONCLUSIONES
+\subfile{sections/section6.tex}
+\newpage
+
+% REFERENCIAS
+\nocite{*}
+\printbibliography[heading=bibintoc]
+
+\end{document}

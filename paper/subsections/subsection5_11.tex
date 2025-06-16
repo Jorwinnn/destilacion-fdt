@@ -1,0 +1,231 @@
+\subsection{Análisis económico}
+
+Para calcular el precio base del casco, rehervidor, condensador y platos se emplea la siguiente correlación general:
+
+\[
+    C_0 = a + b \, S^n
+\]
+
+donde \(a\), \(b\) y \(n\) son coeficientes específicos de cada tipo de equipo, y \(S\) es la magnitud característica \parencite[p.~319]{towler2013chemical}.
+
+\bigskip
+
+\subsubsection{Costo del Casco}
+
+\subsection*{1. Cálculo de la masa del casco}
+
+Se emplea la siguiente fórmula:
+
+\[
+    \text{Shellmass} = \pi \, D \, L \, \rho \, t
+\]
+
+con los siguientes parámetros:
+
+\begin{itemize}
+    \item Diámetro externo: \(D = \SI{1.5}{m}\)
+    \item Altura del casco: \(L = \SI{22}{m}\)
+    \item Espesor de pared: \(t = \SI{0.01}{m}\)
+    \item Densidad del acero al carbono: \(\rho = \SI{7840}{kg/m^3}\)
+\end{itemize}
+
+\[
+    \text{Shellmass} = \pi \cdot 1.5 \cdot 22 \cdot 7840 \cdot 0.01 = \SI{8128}{kg}
+\]
+
+\subsection*{2. Cálculo del costo base del casco}
+
+Utilizando \(S = W_{\text{kg}} = \SI{8128}{kg}\):
+
+\[
+    C_0 = -10\,000 + 600 \cdot (8128)^{0.6} = \SI{123089}{USD}
+\]
+
+\[
+    \boxed{C_{\text{shell, base}} = \SI{123089}{USD}}
+\]
+
+\bigskip
+
+\subsubsection{Costo de Platos Tamizados}
+
+\subsection*{1. Costo base por plato}
+
+La correlación para un plato tamizado es:
+
+\[
+    C_{\text{plato}} = 100 + 120 \cdot D^{2}
+    \quad\text{con}\quad D = \SI{1.5}{m}
+\]
+
+\[
+    C_{\text{plato}} = 100 + 120 \cdot (1.5)^2 = \SI{370}{USD}
+\]
+
+\subsection*{2. Costo total de los 21 platos}
+
+\[
+    N = 21
+    \quad\Rightarrow\quad
+    C_{\text{platos, base}} = 21 \cdot 370 = \SI{7770}{USD}
+\]
+
+\[
+    \boxed{C_{\text{platos, base}} = \SI{7770}{USD}}
+\]
+
+\bigskip
+
+\subsubsection{Costo del Condensador Total}
+
+Se adopta un coeficiente de transferencia de calor de \( U = \SI{300}{W/m^2 \cdot K} \), valor típico para intercambiadores de tubos y coraza con mezcla orgánica ligera como fluido caliente \parencite[p.~797]{towler2013chemical}.
+
+\subsection*{1. Cálculo de área de intercambio}
+
+\[
+    Q = \SI{6974045304.2}{J/h} = \SI{1937235.92}{W}
+\]
+
+Temperaturas:
+
+\begin{itemize}
+    \item Entrada de vapor: \( T_1 = \SI{242.45}{\celsius} \)
+    \item Salida (condensado): \( T_2 = \SI{230.19}{\celsius} \)
+\end{itemize}
+
+\subsection*{2. Temperatura logarítmica media}
+
+\[
+    \Delta T_{\text{lm}} = \frac{T_1 - T_2}{\ln(T_1 / T_2)}
+    = \frac{12.26}{\ln(242.45 / 230.19)}
+    \approx \SI{236.2}{\celsius}
+\]
+
+\[
+    \boxed{\Delta T_{\text{lm}} = \SI{236.2}{\celsius}}
+\]
+
+\subsection*{3. Área de intercambio}
+
+\[
+    A = \frac{Q}{U \cdot \Delta T_{\text{lm}}}
+    = \frac{1937235.92}{300 \cdot 236.2}
+    \approx \SI{27.34}{m^2}
+\]
+
+\[
+    \boxed{A_{\text{condensador}} = \SI{27.34}{m^2}}
+\]
+
+\subsection*{4. Costo base del condensador}
+
+\[
+    C_0 = 10\,000 + 88 \cdot A = 10\,000 + 88 \cdot 27.34 = \SI{12406}{USD}
+\]
+
+\[
+    \boxed{C_{\text{condensador, base}} = \SI{12406}{USD}}
+\]
+
+\bigskip
+
+\subsubsection{Costo del Rehervidor Parcial}
+
+\subsection*{1. Área de intercambio}
+
+\[
+    Q = \SI{7088834364.34}{J/h} = \SI{1969120.65}{W}
+\]
+
+\[
+    \Delta T_{\text{lm}} = \SI{273.56}{\celsius}, \quad U = \SI{300}{W/m^2 \cdot K}
+\]
+
+\[
+    A = \frac{1969120.65}{300 \cdot 273.56} \approx \SI{24.0}{m^2}
+\]
+
+\[
+    \boxed{A_{\text{rehervidor}} = \SI{24.0}{m^2}}
+\]
+
+\subsection*{2. Costo base del rehervidor}
+
+\[
+    C_0 = 10\,000 + 88 \cdot 24 = \SI{12\,112}{USD}
+\]
+
+\[
+    \boxed{C_{\text{rehervidor, base}} = \SI{12\,112}{USD}}
+\]
+
+\bigskip
+
+\subsubsection{Actualización y Costo Total Instalado}
+
+El \textbf{CEPCI} (\textit{Chemical Engineering Plant Cost Index}) es un índice ampliamente utilizado en ingeniería química para actualizar los costos asociados a equipos, instalaciones y plantas industriales a lo largo del tiempo. Este índice refleja las variaciones en los precios de materiales, mano de obra, equipos, construcción e instalación, por lo que constituye una herramienta estándar en la evaluación económica de proyectos químicos e industriales. El CEPCI de referencia corresponde al año 2006, ya que las ecuaciones de costo base están calibradas con ese valor \parencite[p.~321]{towler2013chemical}.
+
+En esta evaluación se emplean los siguientes valores:
+
+\begin{itemize}
+    \item \textbf{CEPCI de referencia (año base)}: 478.6
+    \item \textbf{CEPCI actual (2025)}: 770
+\end{itemize}
+
+La actualización de los costos base se realiza mediante la siguiente relación:
+
+\[
+    C_{\text{actual}} = C_{\text{base}} \cdot \frac{\text{CEPCI}_{\text{actual}}}{\text{CEPCI}_{\text{base}}}
+\]
+
+Para estimar el \textbf{costo total instalado} de cada componente, el costo actualizado se multiplica por un \textbf{factor de instalación}, que contempla los siguientes elementos \parencite[p.~9-68]{perry1997chemical}:
+
+\begin{itemize}
+    \item Desempaque y montaje del equipo
+    \item Conexiones a servicios auxiliares o utilidades existentes
+    \item Materiales y mano de obra de instalación
+    \item Costos de ingeniería y gastos de campo
+    \item Honorarios del contratista y contingencias
+\end{itemize}
+
+Los factores de instalación utilizados fueron tomados de \parencite{installationFactors2021}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l
+            S[table-format=7.0]
+            S[table-format=7.0]}
+        \hline
+        \textbf{Componente}       &
+        \textbf{Costo base (USD)} &
+        \textbf{Costo actualizado (USD)}                       \\
+        \hline
+        Shell                     & 123089            & 198032 \\
+        Platos                    & 7770              & 12501  \\
+        Condensador               & 12406             & 19960  \\
+        Rehervidor                & 12112             & 19487  \\
+        \hline
+                                  & \text{Suma total} & 249980
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l
+            S[table-format=1.2]
+            S[table-format=8.0]}
+        \hline
+        \textbf{Componente}         &
+        \textbf{Factor instalación} &
+        \textbf{Costo instalado (USD)}                           \\
+        \hline
+        Shell                       & 4.05              & 802030 \\
+        Platos                      & 2.70              & 33753  \\
+        Condensador                 & 3.22              & 64271  \\
+        Rehervidor                  & 3.22              & 62748  \\
+        \hline
+                                    & \text{Suma total} & 962802
+    \end{tabular}
+\end{table}
+\subsubsection{Inversión total}
+La suma del costo actualizado de los equipos es de \$249{,}980\ USD, mientras que el costo total de instalación asciende a \$962{,}802\ USD. Al  ambos montos, se obtiene un costo total de \$1{,}212{,}782\ USD, el cual representa la inversión completa incluyendo tanto los equipos como su instalación.

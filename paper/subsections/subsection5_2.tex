@@ -1,0 +1,36 @@
+\subsection{Análisis del objeto de estudio}
+
+% Edson
+\subsubsection{Fundamentos teóricos}
+La destilación multicomponente es una operación unitaria de separación utilizada para fraccionar mezclas homogéneas de líquidos mediante un intercambio sucesivo de calor y masa entre fases de vapor y líquido. Se aplica cuando las sustancias presentes tienen puntos de ebullición distintos y es necesario lograr fracciones de alta pureza \parencite{subsec5_3ref1}.
+
+Algunas mezclas pueden comportarse como \emph{azeótropos}, es decir, presentan una composición líquida y vapor idéntica durante la vaporización, manteniendo temperatura y proporciones constantes hasta agotarse el volumen destinado al destilado \parencite{subsec5_3ref2}. En la práctica de destilación multicomponente, estos comportamientos complejos se identifican mediante curvas de punto de burbuja y de rocío, que sirven de base para estimar la distribución de componentes en cada etapa.
+
+Una columna de destilación multicomponente se conecta a un \emph{rehervidor} en la base y a un \emph{condensador} en el tope, e internamente dispone de varias bandejas perforadas. Cada bandeja perforada proporciona zonas de contacto donde el vapor ascendente atraviesa los orificios y burbujea a través del líquido descendente, favoreciendo la transferencia simultánea de masa y energía fase-fase.
+
+El ciclo operativo es el siguiente:
+\begin{enumerate}
+    \item La alimentación (destilado primario) se introduce a una temperatura y presión determinadas y llega al rehervidor, donde parte del líquido se vaporiza.
+    \item El vapor generado asciende y atraviesa las bandejas perforadas una a una, cediendo su entalpía al líquido en cada etapa y enriqueciéndose progresivamente en componentes más volátiles.
+    \item En la cabeza de la columna, el vapor llega al condensador, que enfría y licúa parcialmente la corriente; una fracción de este producto condensado retorna como \emph{reflujo} para mejorar la separación, mientras que el resto se extrae como distillado final.
+\end{enumerate}
+
+La eficacia de este proceso se basa en las volatilidades relativas de los componentes de la mezcla: los compuestos más volátiles tienden a permanecer en fase vapor, mientras que los menos volátiles se concentran en la fase líquida. En cada bandeja existe un equilibrio dinámica vapor-líquido regido por la \emph{ley de Raoult}, que establece que la presión parcial de cada componente en la fase vapor es proporcional a su fracción molar en la fase líquida \parencite{subsec5_3ref4}. Este equilibrio asegura que, en régimen estacionario, la tasa de evaporación y condensación sea prácticamente constante en cada etapa.
+
+El reflujo incrementa la pureza del producto superior al recircular parte del líquido condensado, promoviendo un enriquecimiento continuo de los componentes ligeros en la vaporación subsecuente. Asimismo, mantiene estable el perfil de temperatura y composición en la columna, ya que el líquido descendente arrastra los componentes menos volátiles y preserva el balance líquido-vapor en cada bandeja.
+
+\subsubsection{Sustancias de trabajo}
+La alimentación se compone de etano, propano, i-butano y n-butano. Sus puntos de ebullición a presión atmosférica son \parencite{subsec5_3ref6}:
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Componente} & \textbf{Punto de ebullición (°C)} \\ \hline
+        Etano               & -88,6                             \\ \hline
+        Propano             & -42,1                             \\ \hline
+        i-Butano            & -11,7                             \\ \hline
+        n-Butano            & -0,5                              \\ \hline
+    \end{tabular}
+    \caption{Puntos de ebullición de los gases ligeros, objeto de recuperación.}
+\end{table}

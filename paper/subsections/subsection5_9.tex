@@ -1,0 +1,861 @@
+\subsection{Validación de los resultados obtenidos}
+La verificación del modelo computacional desarrollado en Python se realizará mediante la comparación de resultados con una simulación efectuada en DWSIM, bajo las mismas condiciones operativas y parámetros de alimentación. En DWSIM se empleará el modelo termodinámico de Peng-Robinson como referencia. Esta comparación permitirá evaluar la capacidad del modelo propio para predecir el comportamiento del sistema, así como identificar posibles desviaciones atribuibles a las simplificaciones o suposiciones incorporadas durante su formulación.
+\nsp{1em}
+Se presentan tablas comparativas donde se muestra el error relativo porcentual de las variables calculadas, tomando como referencia los resultados obtenidos en DWSIM. El error se define mediante la siguiente expresión:
+$$
+    \left| \frac{X_{Python} - X_{DWSIM}}{X_{DWSIM}} \right| \times 100
+$$
+En los casos en el que el valor de DWSIM sea igual a cero (como puede ocurre en las fracciones líquido y vapor), el error relativo no está definido. En dichas situaciones, se reportará el error absoluto, representado como $n_{EA}$, calculado según:
+$$
+    \left| X_{Python} - X_{DWSIM} \right|
+$$
+Cuando ambos valores, el del modelo en Python y el de DWSIM, sean exactamente cero, se indicará con un guion (-) en la tabla, lo cual denota coincidencia total entre ambos y la inexistencia de error medible.
+
+\newpage
+
+\subsubsection{Perfil de Temperatura por etapa}
+\begin{figure}[H]
+    \centering
+    \caption{Temperatura en Kelvin}
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Python} & \textbf{DWSIM} & \textbf{Error relativo (\%)} \\
+        \hline
+        230,19          & 228,27         & 0,84                         \\
+        \hline
+        242,45          & 241,52         & 0,39                         \\
+        \hline
+        249,06          & 248,03         & 0,42                         \\
+        \hline
+        252,29          & 251,35         & 0,37                         \\
+        \hline
+        253,77          & 253,02         & 0,30                         \\
+        \hline
+        254,59          & 254,00         & 0,23                         \\
+        \hline
+        255,20          & 254,71         & 0,19                         \\
+        \hline
+        255,72          & 255,32         & 0,16                         \\
+        \hline
+        256,19          & 255,87         & 0,13                         \\
+        \hline
+        256,61          & 256,38         & 0,09                         \\
+        \hline
+        256,98          & 256,84         & 0,05                         \\
+        \hline
+        257,31          & 257,26         & 0,02                         \\
+        \hline
+        257,60          & 263,93         & 2,40                         \\
+        \hline
+        257,85          & 267,18         & 3,49                         \\
+        \hline
+        265,47          & 268,76         & 1,22                         \\
+        \hline
+        268,81          & 269,68         & 0,32                         \\
+        \hline
+        270,34          & 270,40         & 0,02                         \\
+        \hline
+        271,23          & 271,06         & 0,06                         \\
+        \hline
+        271,90          & 271,72         & 0,07                         \\
+        \hline
+        272,46          & 272,38         & 0,03                         \\
+        \hline
+        272,95          & 273,03         & 0,03                         \\
+        \hline
+        273,38          & 273,66         & 0,10                         \\
+        \hline
+        273,75          & 274,24         & 0,18                         \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Perfil de Presión por etapa}
+
+\begin{figure}[H]
+    \centering
+    \caption{Presión en Pascal}
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Python} & \textbf{DWSIM} & \textbf{Error relativo (\%)} \\
+        \hline
+        101325.00       & 101325         & 0.00                         \\
+        \hline
+        101850.15       & 101325         & 0.52                         \\
+        \hline
+        102388.44       & 101908         & 0.47                         \\
+        \hline
+        102932.39       & 102491         & 0.43                         \\
+        \hline
+        103478.89       & 103074         & 0.39                         \\
+        \hline
+        104026.89       & 103657         & 0.36                         \\
+        \hline
+        104576.02       & 104240         & 0.32                         \\
+        \hline
+        105126.11       & 104824         & 0.29                         \\
+        \hline
+        105677.06       & 105407         & 0.26                         \\
+        \hline
+        106228.73       & 105990         & 0.23                         \\
+        \hline
+        106781.00       & 106573         & 0.20                         \\
+        \hline
+        107333.76       & 107156         & 0.17                         \\
+        \hline
+        107886.92       & 107739         & 0.14                         \\
+        \hline
+        108440.38       & 108322         & 0.11                         \\
+        \hline
+        109003.14       & 108905         & 0.09                         \\
+        \hline
+        109569.83       & 109488         & 0.07                         \\
+        \hline
+        110138.46       & 110071         & 0.06                         \\
+        \hline
+        110708.37       & 110654         & 0.05                         \\
+        \hline
+        111279.28       & 111238         & 0.04                         \\
+        \hline
+        111851.02       & 111821         & 0.03                         \\
+        \hline
+        112423.45       & 112404         & 0.02                         \\
+        \hline
+        112996.45       & 112987         & 0.01                         \\
+        \hline
+        113569.93       & 113570         & 0.00                         \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Flujo molar de líquido por etapa}
+
+\begin{figure}[H]
+    \centering
+    \caption{Flujo molar líquido (kmol/h)}
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{DWSIM} & \textbf{Python} & \textbf{Error relativo} (\%) \\
+        \hline
+        216.98         & 216.96          & 0.01                         \\
+        \hline
+        208.00         & 197.80          & 4.91                         \\
+        \hline
+        203.66         & 188.70          & 7.35                         \\
+        \hline
+        201.83         & 185.38          & 8.15                         \\
+        \hline
+        200.71         & 183.84          & 8.40                         \\
+        \hline
+        199.77         & 182.82          & 8.49                         \\
+        \hline
+        198.91         & 181.99          & 8.51                         \\
+        \hline
+        198.12         & 181.27          & 8.50                         \\
+        \hline
+        197.41         & 186.65          & 5.45                         \\
+        \hline
+        196.78         & 180.12          & 8.47                         \\
+        \hline
+        196.25         & 179.69          & 8.44                         \\
+        \hline
+        196.18         & 179.33          & 8.59                         \\
+        \hline
+        197.88         & 179.06          & 9.51                         \\
+        \hline
+        198.48         & 359.51          & 81.13                        \\
+        \hline
+        198.62         & 355.80          & 79.13                        \\
+        \hline
+        198.50         & 354.81          & 78.75                        \\
+        \hline
+        198.26         & 354.10          & 78.61                        \\
+        \hline
+        197.97         & 353.45          & 78.54                        \\
+        \hline
+        197.67         & 352.88          & 78.52                        \\
+        \hline
+        197.38         & 352.41          & 78.54                        \\
+        \hline
+        197.12         & 352.03          & 78.59                        \\
+        \hline
+        196.89         & 351.75          & 78.65                        \\
+        \hline
+        BR = 4.793     & 34.00           & -                            \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Flujo molar de vapor por etapa}
+
+\begin{figure}[H]
+    \centering
+    \caption{Flujo molar vapor (kmol/h)}
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{DWSIM} & \textbf{Python} & \textbf{Error relativo} (\%) \\
+        \hline
+        RR = 1.307     & 0.00            & -                            \\
+        \hline
+        383.00         & 383.03          & 0.01                         \\
+        \hline
+        374.02         & 363.80          & 2.73                         \\
+        \hline
+        369.68         & 354.70          & 4.05                         \\
+        \hline
+        367.84         & 351.38          & 4.48                         \\
+        \hline
+        366.72         & 349.84          & 4.60                         \\
+        \hline
+        365.79         & 348.82          & 4.64                         \\
+        \hline
+        364.93         & 347.99          & 4.64                         \\
+        \hline
+        364.14         & 347.27          & 4.63                         \\
+        \hline
+        363.42         & 346.65          & 4.62                         \\
+        \hline
+        362.80         & 346.12          & 4.60                         \\
+        \hline
+        362.26         & 345.69          & 4.58                         \\
+        \hline
+        163.03         & 345.33          & 111.82                       \\
+        \hline
+        163.89         & 345.06          & 110.54                       \\
+        \hline
+        164.50         & 325.51          & 97.88                        \\
+        \hline
+        164.64         & 321.80          & 95.46                        \\
+        \hline
+        164.51         & 320.81          & 95.00                        \\
+        \hline
+        164.27         & 320.10          & 94.86                        \\
+        \hline
+        163.98         & 319.45          & 94.81                        \\
+        \hline
+        163.68         & 318.88          & 94.82                        \\
+        \hline
+        163.40         & 318.41          & 94.87                        \\
+        \hline
+        163.13         & 318.03          & 94.95                        \\
+        \hline
+        162.91         & 317.75          & 95.05                        \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Perfil de composición Líquida por etapa en DWSIM}
+
+\begin{figure}[H]
+    \centering
+    \caption{Composición líquida $x$}
+    \small
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Etano} & \textbf{Propano} & \textbf{N-butano} & \textbf{Isobutano} \\
+        \hline
+        0.05           & 0.75             & 0.02              & 0.19               \\
+        \hline
+        0.01           & 0.50             & 0.06              & 0.44               \\
+        \hline
+        0.00           & 0.33             & 0.10              & 0.57               \\
+        \hline
+        0.00           & 0.25             & 0.15              & 0.60               \\
+        \hline
+        0.00           & 0.22             & 0.19              & 0.59               \\
+        \hline
+        0.00           & 0.20             & 0.23              & 0.56               \\
+        \hline
+        0.00           & 0.19             & 0.28              & 0.53               \\
+        \hline
+        0.00           & 0.19             & 0.32              & 0.49               \\
+        \hline
+        0.00           & 0.19             & 0.35              & 0.46               \\
+        \hline
+        0.00           & 0.18             & 0.39              & 0.43               \\
+        \hline
+        0.00           & 0.18             & 0.42              & 0.40               \\
+        \hline
+        0.00           & 0.18             & 0.44              & 0.38               \\
+        \hline
+        0.00           & 0.07             & 0.50              & 0.43               \\
+        \hline
+        0.00           & 0.03             & 0.55              & 0.43               \\
+        \hline
+        0.00           & 0.01             & 0.58              & 0.41               \\
+        \hline
+        0.00           & 0.00             & 0.62              & 0.38               \\
+        \hline
+        0.00           & 0.00             & 0.66              & 0.34               \\
+        \hline
+        0.00           & 0.00             & 0.70              & 0.30               \\
+        \hline
+        0.00           & 0.00             & 0.74              & 0.26               \\
+        \hline
+        0.00           & 0.00             & 0.78              & 0.22               \\
+        \hline
+        0.00           & 0.00             & 0.82              & 0.18               \\
+        \hline
+        0.00           & 0.00             & 0.86              & 0.14               \\
+        \hline
+        0.00           & 0.00             & 0.90              & 0.10               \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Perfil de composición Líquida por etapa en Python}
+
+\begin{figure}[H]
+    \centering
+    \caption{Composición líquida $x$}
+    \small
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Etano} & \textbf{Propano} & \textbf{N-butano} & \textbf{Isobutano} \\
+        \hline
+        0.05           & 0.75             & 0.02              & 0.19               \\
+        \hline
+        0.01           & 0.48             & 0.06              & 0.45               \\
+        \hline
+        0.00           & 0.30             & 0.12              & 0.59               \\
+        \hline
+        0.00           & 0.22             & 0.17              & 0.61               \\
+        \hline
+        0.00           & 0.20             & 0.21              & 0.59               \\
+        \hline
+        0.00           & 0.19             & 0.25              & 0.56               \\
+        \hline
+        0.00           & 0.18             & 0.30              & 0.52               \\
+        \hline
+        0.00           & 0.18             & 0.33              & 0.48               \\
+        \hline
+        0.00           & 0.18             & 0.37              & 0.45               \\
+        \hline
+        0.00           & 0.18             & 0.40              & 0.42               \\
+        \hline
+        0.00           & 0.17             & 0.42              & 0.40               \\
+        \hline
+        0.00           & 0.17             & 0.44              & 0.38               \\
+        \hline
+        0.00           & 0.17             & 0.46              & 0.36               \\
+        \hline
+        0.00           & 0.17             & 0.47              & 0.35               \\
+        \hline
+        0.00           & 0.06             & 0.59              & 0.36               \\
+        \hline
+        0.00           & 0.02             & 0.66              & 0.32               \\
+        \hline
+        0.00           & 0.00             & 0.72              & 0.27               \\
+        \hline
+        0.00           & 0.00             & 0.77              & 0.22               \\
+        \hline
+        0.00           & 0.00             & 0.82              & 0.18               \\
+        \hline
+        0.00           & 0.00             & 0.86              & 0.14               \\
+        \hline
+        0.00           & 0.00             & 0.89              & 0.11               \\
+        \hline
+        0.00           & 0.00             & 0.92              & 0.08               \\
+        \hline
+        0.00           & 0.00             & 0.94              & 0.06               \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Error relativo de composición líquida}
+
+\begin{figure}[H]
+    \centering
+    \caption{Error relativo porcentual (\%)}
+    \small
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Etano} & \textbf{Propano} & \textbf{N-butano} & \textbf{Isobutano} \\
+        \hline
+        0.00           & 0.00             & 0.00              & 0.00               \\
+        \hline
+        0.00           & 4.00             & 0.00              & 2.27               \\
+        \hline
+        -              & 9.09             & 20.00             & 3.51               \\
+        \hline
+        -              & 12.00            & 13.33             & 1.67               \\
+        \hline
+        -              & 9.09             & 10.53             & 0.00               \\
+        \hline
+        -              & 5.00             & 8.70              & 0.00               \\
+        \hline
+        -              & 5.26             & 7.14              & 1.89               \\
+        \hline
+        -              & 5.26             & 3.13              & 2.04               \\
+        \hline
+        -              & 5.26             & 5.71              & 2.17               \\
+        \hline
+        -              & 0.00             & 2.56              & 2.33               \\
+        \hline
+        -              & 5.56             & 0.00              & 0.00               \\
+        \hline
+        -              & 5.56             & 0.00              & 0.00               \\
+        \hline
+        -              & 142.86           & 8.00              & 16.28              \\
+        \hline
+        -              & 466.67           & 14.55             & 18.60              \\
+        \hline
+        -              & 500.00           & 1.72              & 12.20              \\
+        \hline
+        -              & $0.02_{EA}$      & 6.45              & 15.79              \\
+        \hline
+        -              & -                & 9.09              & 20.59              \\
+        \hline
+        -              & -                & 10.00             & 26.67              \\
+        \hline
+        -              & -                & 10.81             & 30.77              \\
+        \hline
+        -              & -                & 10.26             & 36.36              \\
+        \hline
+        -              & -                & 8.54              & 38.89              \\
+        \hline
+        -              & -                & 6.98              & 42.86              \\
+        \hline
+        -              & -                & 4.44              & 40.00              \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Perfil de composición de vapor por etapa en DWSIM}
+
+\begin{figure}[H]
+    \centering
+    \caption{Composición de vapor $y$}
+    \small
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Etano} & \textbf{Propano} & \textbf{N-butano} & \textbf{Isobutano} \\
+        \hline
+        0.29           & 0.66             & 0.04              & 0.00               \\
+        \hline
+        0.05           & 0.75             & 0.19              & 0.02               \\
+        \hline
+        0.03           & 0.61             & 0.33              & 0.04               \\
+        \hline
+        0.02           & 0.52             & 0.40              & 0.06               \\
+        \hline
+        0.02           & 0.47             & 0.41              & 0.09               \\
+        \hline
+        0.02           & 0.46             & 0.41              & 0.11               \\
+        \hline
+        0.02           & 0.45             & 0.39              & 0.14               \\
+        \hline
+        0.02           & 0.45             & 0.37              & 0.16               \\
+        \hline
+        0.02           & 0.44             & 0.35              & 0.18               \\
+        \hline
+        0.02           & 0.44             & 0.34              & 0.20               \\
+        \hline
+        0.02           & 0.44             & 0.32              & 0.22               \\
+        \hline
+        0.02           & 0.44             & 0.30              & 0.23               \\
+        \hline
+        0.00           & 0.21             & 0.44              & 0.34               \\
+        \hline
+        0.00           & 0.09             & 0.49              & 0.42               \\
+        \hline
+        0.00           & 0.03             & 0.50              & 0.47               \\
+        \hline
+        0.00           & 0.01             & 0.47              & 0.52               \\
+        \hline
+        0.00           & 0.00             & 0.43              & 0.56               \\
+        \hline
+        0.00           & 0.00             & 0.39              & 0.61               \\
+        \hline
+        0.00           & 0.00             & 0.34              & 0.66               \\
+        \hline
+        0.00           & 0.00             & 0.29              & 0.71               \\
+        \hline
+        0.00           & 0.00             & 0.24              & 0.76               \\
+        \hline
+        0.00           & 0.00             & 0.19              & 0.81               \\
+        \hline
+        0.00           & 0.00             & 0.15              & 0.85               \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Perfil de composición de vapor por etapa en Python}
+
+\begin{figure}[H]
+    \centering
+    \caption{Composición de vapor $y$}
+    \small
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Etano} & \textbf{Propano} & \textbf{N-butano} & \textbf{Isobutano} \\
+        \hline
+        0.28           & 0.67             & 0.04              & 0.00               \\
+        \hline
+        0.05           & 0.75             & 0.19              & 0.02               \\
+        \hline
+        0.03           & 0.60             & 0.33              & 0.04               \\
+        \hline
+        0.02           & 0.51             & 0.40              & 0.07               \\
+        \hline
+        0.02           & 0.47             & 0.41              & 0.09               \\
+        \hline
+        0.02           & 0.46             & 0.40              & 0.12               \\
+        \hline
+        0.02           & 0.45             & 0.38              & 0.14               \\
+        \hline
+        0.02           & 0.45             & 0.36              & 0.16               \\
+        \hline
+        0.02           & 0.45             & 0.34              & 0.18               \\
+        \hline
+        0.02           & 0.45             & 0.33              & 0.20               \\
+        \hline
+        0.02           & 0.45             & 0.31              & 0.22               \\
+        \hline
+        0.02           & 0.45             & 0.30              & 0.23               \\
+        \hline
+        0.02           & 0.45             & 0.29              & 0.24               \\
+        \hline
+        0.02           & 0.45             & 0.28              & 0.25               \\
+        \hline
+        0.00           & 0.19             & 0.38              & 0.43               \\
+        \hline
+        0.00           & 0.06             & 0.39              & 0.55               \\
+        \hline
+        0.00           & 0.02             & 0.35              & 0.63               \\
+        \hline
+        0.00           & 0.01             & 0.29              & 0.70               \\
+        \hline
+        0.00           & 0.00             & 0.24              & 0.76               \\
+        \hline
+        0.00           & 0.00             & 0.19              & 0.81               \\
+        \hline
+        0.00           & 0.00             & 0.15              & 0.85               \\
+        \hline
+        0.00           & 0.00             & 0.12              & 0.88               \\
+        \hline
+        0.00           & 0.00             & 0.09              & 0.91               \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Error relativo de omposición de vapor}
+
+\begin{figure}[H]
+    \centering
+    \caption{Error relativo porcentual (\%)}
+    \small
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Etano} & \textbf{Propano} & \textbf{N-butano} & \textbf{Isobutano} \\
+        \hline
+        3.45           & 1.52             & 0.00              & 0.00               \\
+        \hline
+        0.00           & 0.00             & 0.00              & 0.00               \\
+        \hline
+        0.00           & 1.64             & 0.00              & 0.00               \\
+        \hline
+        0.00           & 1.92             & 0.00              & 16.67              \\
+        \hline
+        0.00           & 0.00             & 0.00              & 0.00               \\
+        \hline
+        0.00           & 0.00             & 2.44              & 9.09               \\
+        \hline
+        0.00           & 0.00             & 2.56              & 0.00               \\
+        \hline
+        0.00           & 0.00             & 2.70              & 0.00               \\
+        \hline
+        0.00           & 2.27             & 2.86              & 0.00               \\
+        \hline
+        0.00           & 2.27             & 2.94              & 0.00               \\
+        \hline
+        0.00           & 2.27             & 3.13              & 0.00               \\
+        \hline
+        0.00           & 2.27             & 0.00              & 0.00               \\
+        \hline
+        $0.02_{EA}$    & 114.29           & 34.09             & 29.41              \\
+        \hline
+        $0.02_{EA}$    & 400.00           & 42.86             & 40.48              \\
+        \hline
+        -              & 533.33           & 24.00             & 8.51               \\
+        \hline
+        -              & 500.00           & 17.02             & 5.77               \\
+        \hline
+        -              & $0.02_{EA}$      & 18.60             & 12.50              \\
+        \hline
+        -              & $0.01_{EA}$      & 25.64             & 14.75              \\
+        \hline
+        -              & -                & 29.41             & 15.15              \\
+        \hline
+        -              & -                & 34.48             & 14.08              \\
+        \hline
+        -              & -                & 37.50             & 11.84              \\
+        \hline
+        -              & -                & 36.84             & 8.64               \\
+        \hline
+        -              & -                & 40.00             & 7.06               \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Densidad de vapor por etapa}
+
+\begin{figure}[H]
+    \centering
+    \caption{Densidad de vapor $\rho_v \, (kg/m^3)$}
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{DWSIM} & \textbf{Python} & \textbf{Error relativo} (\%) \\
+        \hline
+        2.17           & 2.15            & 0.92                         \\
+        \hline
+        2.33           & 2.34            & 0.43                         \\
+        \hline
+        2.41           & 2.42            & 0.41                         \\
+        \hline
+        2.46           & 2.47            & 0.41                         \\
+        \hline
+        2.49           & 2.49            & 0.00                         \\
+        \hline
+        2.51           & 2.51            & 0.00                         \\
+        \hline
+        2.52           & 2.52            & 0.00                         \\
+        \hline
+        2.53           & 2.53            & 0.00                         \\
+        \hline
+        2.54           & 2.54            & 0.00                         \\
+        \hline
+        2.55           & 2.55            & 0.00                         \\
+        \hline
+        2.56           & 2.56            & 0.00                         \\
+        \hline
+        2.57           & 2.57            & 0.00                         \\
+        \hline
+        2.70           & 2.58            & 4.44                         \\
+        \hline
+        2.78           & 2.59            & 6.83                         \\
+        \hline
+        2.81           & 2.74            & 2.49                         \\
+        \hline
+        2.83           & 2.81            & 0.71                         \\
+        \hline
+        2.84           & 2.84            & 0.00                         \\
+        \hline
+        2.85           & 2.85            & 0.00                         \\
+        \hline
+        2.86           & 2.86            & 0.00                         \\
+        \hline
+        2.87           & 2.87            & 0.00                         \\
+        \hline
+        2.88           & 2.88            & 0.00                         \\
+        \hline
+        2.89           & 2.89            & 0.00                         \\
+        \hline
+        2.89           & 2.90            & 0.35                         \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Densidad del líquido por etapa}
+
+\begin{figure}[H]
+    \centering
+    \caption{Densidad del líquido $\rho_L \, (kg/m^3)$}
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{DWSIM} & \textbf{Python} & Error relativo (\%) \\
+        \hline
+        589.05         & 511.12          & 13.23               \\
+        \hline
+        592.35         & 533.23          & 9.98                \\
+        \hline
+        594.45         & 546.67          & 8.04                \\
+        \hline
+        595.43         & 552.46          & 7.22                \\
+        \hline
+        595.98         & 555.06          & 6.87                \\
+        \hline
+        596.40         & 556.59          & 6.68                \\
+        \hline
+        596.77         & 557.75          & 6.54                \\
+        \hline
+        597.10         & 558.73          & 6.43                \\
+        \hline
+        597.39         & 559.59          & 6.33                \\
+        \hline
+        597.63         & 560.33          & 6.24                \\
+        \hline
+        597.81         & 560.95          & 6.17                \\
+        \hline
+        597.94         & 561.45          & 6.10                \\
+        \hline
+        597.92         & 561.85          & 6.03                \\
+        \hline
+        597.80         & 562.16          & 5.96                \\
+        \hline
+        597.78         & 571.72          & 4.36                \\
+        \hline
+        597.84         & 575.75          & 3.69                \\
+        \hline
+        597.95         & 577.74          & 3.38                \\
+        \hline
+        598.09         & 579.04          & 3.19                \\
+        \hline
+        598.24         & 580.06          & 3.04                \\
+        \hline
+        598.39         & 580.90          & 2.92                \\
+        \hline
+        598.52         & 581.61          & 2.83                \\
+        \hline
+        598.63         & 582.20          & 2.74                \\
+        \hline
+        598.71         & 582.68          & 2.68                \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Tensión superficial por etapa}
+\begin{figure}[H]
+    \centering
+    \caption{Tensiones superficiales $\sigma \, (N/m)$ }
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{DWSIM} & \textbf{Python} & \textbf{Error relativo} \% \\
+        \hline
+        0.01604        & 0.01599         & 0.34                       \\
+        \hline
+        0.01604        & 0.01552         & 3.27                       \\
+        \hline
+        0.01604        & 0.01526         & 4.89                       \\
+        \hline
+        0.01604        & 0.01513         & 5.70                       \\
+        \hline
+        0.01604        & 0.01510         & 5.88                       \\
+        \hline
+        0.01604        & 0.01511         & 5.82                       \\
+        \hline
+        0.01604        & 0.01514         & 5.63                       \\
+        \hline
+        0.01604        & 0.01516         & 5.51                       \\
+        \hline
+        0.01604        & 0.01518         & 5.38                       \\
+        \hline
+        0.01604        & 0.01520         & 5.26                       \\
+        \hline
+        0.01604        & 0.01521         & 5.20                       \\
+        \hline
+        0.01604        & 0.01522         & 5.14                       \\
+        \hline
+        0.01604        & 0.01522         & 5.14                       \\
+        \hline
+        0.01604        & 0.01522         & 5.14                       \\
+        \hline
+        0.01604        & 0.01479         & 7.82                       \\
+        \hline
+        0.01604        & 0.01463         & 8.81                       \\
+        \hline
+        0.01604        & 0.01460         & 9.00                       \\
+        \hline
+        0.01604        & 0.01460         & 9.00                       \\
+        \hline
+        0.01604        & 0.01461         & 8.94                       \\
+        \hline
+        0.01604        & 0.01463         & 8.81                       \\
+        \hline
+        0.01604        & 0.01464         & 8.75                       \\
+        \hline
+        0.01604        & 0.01464         & 8.75                       \\
+        \hline
+        0.01604        & 0.01464         & 8.75                       \\
+        \hline
+    \end{tabular}
+    \normalsize
+\end{figure}
+
+\newpage
+
+\subsubsection{Velocidad de vapor}
+
+Dado que el software DWSIM no proporciona el rango de velocidades de vapor, se recurre a referencias bibliográficas para validar los valores empleados.
+
+En el trabajo de \textcite{GonzalezRamirez2020}, se estudia un sistema binario anilina-agua, donde se calcula la velocidad máxima de vapor utilizando la correlación de Souders-Brown —la misma empleada en este trabajo—, obteniendo un valor de 3.23 m/s. La velocidad de operación se estimó como el 75\% de este valor, resultando en 2.42 m/s.
+
+Por su parte, \textcite{KLMTech2011} analiza un sistema binario pentano-hexano y reporta velocidades típicas en el rango de 0.3 a 2.3 m/s.
+
+Estas referencias permiten concluir que las velocidades de operación, mínima y máxima, dependen significativamente de las propiedades del sistema estudiado. En consecuencia, los valores utilizados en este trabajo resultan coherentes con la bibliografía consultada.
+
+\subsubsection{Justificación de errores relativos}
+Cabe destacar que, en ciertos casos, se observan errores relativos elevados entre los resultados obtenidos con el modelo en Python y los reportados por DWSIM. Estas discrepancias pueden atribuirse a diversos factores, tales como diferencias en los métodos numéricos empleados, simplificaciones o suposiciones adoptadas en la formulación del modelo propio, así como a la sensibilidad inherente de algunas variables a pequeñas variaciones en las condiciones de operación o composición.
+\paragraph{Temperatura y Presión}
+Los perfiles de temperatura y presión tienen un error relativo muy bajo, lo que indica una buena precisión en ambos modelos.
+\paragraph{Flujo molar de líquido y vapor}
+El flujo molar de líquido y vapor presenta errores relativos que oscilan entre el \(4.91\%\) y el \(9.51\%\), lo cual, aunque elevado, puede considerarse aceptable dadas las limitaciones del modelo. Sin embargo, en la etapa de alimentación, el error se incrementa de forma significativa, superando el \(75\%\).
+
+A pesar de estas discrepancias, el modelo desarrollado en \textit{Python} muestra un comportamiento más coherente con el planteamiento del problema. Dado que se especificó que la alimentación consiste en líquido saturado, es esperable observar un mayor flujo molar de líquido en las etapas posteriores a la alimentación y menor en las anteriores. Esta tendencia es reproducida por el modelo de \textit{Python}, pero no por el simulador \textit{DWSIM}.
+
+En el caso de \textit{DWSIM}, se observa una inversión de esta lógica, lo que sugiere que el simulador interpreta que la corriente de alimentación está compuesta mayoritariamente por vapor. Esta discrepancia puede deberse al paquete termodinámico utilizado en la simulación, que, en función de las condiciones de entrada, clasifica erróneamente la alimentación como vapor saturado. Cabe destacar que en ambos modelos se estableció explícitamente que la corriente de entrada corresponde a líquido saturado.
+\paragraph{Composición de líquido y vapor}
+Con respecto al flujo molar de líquido, se observa que en algunas etapas el error relativo es muy bajo, e incluso nulo, mientras que en otras etapas puede alcanzar valores elevados. Un comportamiento similar se presenta en la composición del vapor, lo que permite concluir que existen etapas en las que ambos modelos —\textit{Python} y \textit{DWSIM}— coinciden con alta precisión, pero también hay etapas en las que presentan discrepancias significativas.
+
+Los errores elevados en ciertas etapas pueden atribuirse a una combinación de factores, como la sensibilidad numérica del modelo, diferencias en la estimación de propiedades termodinámicas, y el impacto de las condiciones de borde establecidas en cada simulación.
+\paragraph{Densidad de vapor}
+El error relativo de la densidad de vapor en cada etapa es menor al 1\%, lo que indica que ambos modelos tienen buena precisión.
+\paragraph{Densidad de líquido}
+El error relativo en la primera etapa es del \(13.23\%\), y disminuye progresivamente en las etapas siguientes. El simulador \textit{DWSIM} muestra un incremento más lento en la densidad del líquido en comparación con el modelo desarrollado en \textit{Python}. Este último presenta un comportamiento más coherente, ya que, en las etapas superiores de la columna, es esperable una mayor acumulación de vapor en comparación con el fondo, lo que implica una menor densidad. Por lo tanto, se concluye que el modelo de \textit{Python} representa de manera más fiel el perfil de densidad esperado en la columna.
+\paragraph{Tensión superficial}
+Se observa que el error relativo en la estimación de la tensión superficial (\(\sigma\)) aumenta a medida que se avanza en la columna. Esto puede explicarse mediante la correlación de Brock-Bird, la cual describe cómo varía \(\sigma\) en función de las propiedades críticas y la temperatura. La expresión matemática es la siguiente:
+
+\[
+    \sigma = 1 \times 10^{-3} \left(0.132\,\alpha_c - 0.278\right) P_c^{2/3} T_c^{1/3} \left(1 - \frac{T}{T_c} \right)^{11/9}
+\]
+
+En esta ecuación, el término
+$$
+    \left(1 - \frac{T}{T_c} \right)^{11/9}
+$$
+es el principal responsable de la disminución de la tensión superficial con el aumento de la temperatura \(T\). Este comportamiento tiene un claro sentido físico, ya que al incrementar la temperatura, las fuerzas cohesivas entre las moléculas en la interfaz se reducen, lo que provoca una disminución de la tensión superficial.
+
+A partir de este análisis, se concluye que el modelo desarrollado en \textit{Python} presenta una mayor coherencia física, ya que reproduce adecuadamente la relación inversa entre temperatura y tensión superficial observada en los sistemas reales.

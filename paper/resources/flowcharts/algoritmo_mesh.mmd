@@ -1,0 +1,20 @@
+%%{init: {'theme': 'forest', 'themeVariables': { 'fontSize': '12px'}} }%%
+
+flowchart TD
+    A[Inicializar parámetros] --> C[Establecer temperaturas/presiones iniciales]
+    C --> D[Estimar caudales líquido/vapor]
+    D --> E[Calcular coeficientes de equilibrio]
+    E --> F[Resolver balances de masa]
+    F --> G[Calcular nuevas temperaturas]
+    G --> H{¿Temperaturas estables?}
+    H -- No --> E
+    H -- Sí --> L[Resolver balance de energía]
+    L --> M[Actualizar caudales líquido/vapor]
+    M --> I[Calcular densidades]
+    I --> J[Calcular velocidades de vapor]
+    J --> K[Calcular caídas de presión]
+    K --> N{¿Caudales estables?}
+    N -- No --> E
+    N -- Sí --> O{¿Velocidades y<br>presiones seguras?}
+    O -- No --> P[Detener: condiciones inseguras]
+    O -- Sí --> Q[Mostrar resultados finales]

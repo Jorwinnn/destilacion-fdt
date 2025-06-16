@@ -1,0 +1,44 @@
+# Entornos virtuales
+.venv/
+
+# macOS
+*.DS_Store
+
+# LaTeX auxiliares/compilación
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*.snm
+*.nav
+*.vrb
+*.run.xml
+*.bcf
+*.thm
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.glg
+*.brf
+*.entoc
+*.pyg
+*.lol
+*.mw
+*.hd
+*.dtx
+*.ins
+*.bbl-SAVE-ERROR
+*.bcf-SAVE-ERROR
+
+# Python
+__pycache__/
